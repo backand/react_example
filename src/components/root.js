@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Login } from 'components/login';
+import Login from 'components/login';
 
 export const Root = () => {
   const noop               = () => {};
@@ -15,9 +15,9 @@ export const Root = () => {
   return (
     <div className="container">
       <h1>Hello, Backand!</h1>
-      
+
       <Login />
-      
+
       <hr/>
       ADD TODO: <input name="todo-input"/>
       <div>

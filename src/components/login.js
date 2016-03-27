@@ -1,43 +1,58 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import cx from 'classnames';
+
+import { getAuthTokenSimple, useAnonymousAuth } from 'actions/login';
 
 export class Login extends Component {
 
   render() {
+
+    const errorClasses = cx(
+      this.props.authError ? 'alert alert-danger' : null
+    );
+
     return (
       <div>
         <label>Choose authentication type:</label>
 
         <div>
           <label>Username</label>
-          <input ref="username"/>
+          <input ref="username" defaultValue="test@angular2.com"/>
         </div>
         <div>
           <label>Password</label>
-          <input ref="password"/>
+          <input ref="password" defaultValue="angular2"/>
         </div>
 
-
-        <button onClick={ this.getAuthTokenSimple.bind(this) } className="btn btn-success">Token Auth
+        <button onClick={ this._getAuthTokenSimple.bind(this) } className="btn btn-success">Token Auth
         </button>
-        <button onClick={ this.useAnoymousAuth.bind(this) } className="btn btn-danger">Anonymous Auth
+        <button onClick={ this.props.useAnonymousAuth } className="btn btn-danger">Anonymous Auth
         </button>
 
         <br/>
-        { /* <label>Using { auth_type } authentication</label>
-        <div>
-          <label>{ auth_status }</label>
-        </div> */ }
+        <label>Using { this.props.authType } authentication</label>
+        <div className={ errorClasses }>
+          <label>{ this.props.authStatus }</label>
+        </div>
 
       </div>
     );
   }
 
-  getAuthTokenSimple() {
-    console.log(this.refs.username.value, this.refs.password.value);
-  }
+  _getAuthTokenSimple() {
+    const username = this.refs.username.value;
+    const password = this.refs.password.value;
 
-  useAnoymousAuth() {
-
+    this.props.getAuthTokenSimple(username, password);
   }
 
 }
+
+const mapStateToProps = (state, action) => ({
+  authStatus: state.ui.authStatus,
+  authError: state.ui.authError,
+  authType: state.user.authType
+});
+
+export default connect(mapStateToProps, { getAuthTokenSimple, useAnonymousAuth })(Login);
