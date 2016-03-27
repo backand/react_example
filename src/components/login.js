@@ -50,9 +50,9 @@ export class Login extends Component {
 }
 
 const mapStateToProps = (state, action) => ({
-  authStatus: state.ui.authStatus,
-  authError: state.ui.authError,
-  authType: state.user.authType
+  authStatus: state.user.authStatus,
+  authType: state.user.authType,
+  authError: state.ui.authError
 });
 
 export default connect(mapStateToProps, { getAuthTokenSimple, useAnonymousAuth })(Login);
