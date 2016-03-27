@@ -9,7 +9,7 @@ const appName = 'angular2';
 export function APIMiddleware({ dispatch, getState }) {
   return next => action => {
     const state         = getState();
-    const authHeader    = getAuthHeader(state.user.authType, state.user.accessToken);
+    const authHeader    = HTTP.getAuthHeader(state.user.authType, state.user.accessToken);
     const contentHeader = { 'Content-Type': 'application/x-www-form-urlencoded' };
 
     switch (action.type) {
@@ -39,12 +39,4 @@ export function APIMiddleware({ dispatch, getState }) {
 
     return next(action);
   };
-}
-
-function getAuthHeader(authType, token) {
-  if (authType === 'anonymous') {
-    return { AnonymousToken: token };
-  }
-
-  return { Authorization: `Bearer ${token}` };
 }

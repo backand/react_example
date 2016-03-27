@@ -42,4 +42,12 @@ export class HTTP {
     });
   }
 
+  static getAuthHeader(authType, token) {
+    if (authType === 'anonymous') {
+      return { AnonymousToken: token };
+    }
+
+    return { Authorization: `Bearer ${token}` };
+  }
+
 }
