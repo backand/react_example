@@ -9,7 +9,7 @@ export function todos(state = initialState, action) {
       return [...action.payload.data];
 
     case TODO_POST_ITEM_SUCCESS:
-      return [action.payload.todo, ...state]
+      return [action.payload.todo, ...state];
   }
 
   return state;
