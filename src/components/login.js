@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import cx from 'classnames';
 
@@ -50,6 +50,12 @@ export class Login extends Component {
   }
 
 }
+
+Login.PropTypes = {
+  authStatus: PropTypes.string.required,
+  authType: PropTypes.string.required,
+  authError: PropTypes.bool.required
+};
 
 const mapStateToProps = (state, action) => ({
   authStatus: state.user.authStatus,
