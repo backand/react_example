@@ -10,7 +10,7 @@ export class TodoList extends Component {
       <div>
         <div>
           <div>
-            ADD TODO: <input name="todo-input" ref="todo"/>
+            ADD TODO: <input name="todo-input" ref="todo" defaultValue="World"/>
             <div>
               <button onClick={ this.props.getItems }
                       className="btn btn-success">Get Items
