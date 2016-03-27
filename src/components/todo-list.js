@@ -34,8 +34,8 @@ export class TodoList extends Component {
     return this.props.todos
       .map((todo) => (<li key={ todo.id }
                           className="list-group-item">
-        { todo.description }
-      </li>)
+          { todo.description }
+        </li>)
       );
   }
 

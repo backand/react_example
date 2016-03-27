@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import cx from 'classnames';
 
-import { getAuthTokenSimple, useAnonymousAuth } from 'actions/login';
+import {getAuthTokenSimple, useAnonymousAuth} from 'actions/login';
 
 export class Login extends Component {
 
@@ -25,9 +25,11 @@ export class Login extends Component {
           <input ref="password" defaultValue="angular2"/>
         </div>
 
-        <button onClick={ this._getAuthTokenSimple.bind(this) } className="btn btn-success">Token Auth
+        <button onClick={ this._getAuthTokenSimple.bind(this) }
+                className="btn btn-success">Token Auth
         </button>
-        <button onClick={ this.props.useAnonymousAuth } className="btn btn-danger">Anonymous Auth
+        <button onClick={ this.props.useAnonymousAuth }
+                className="btn btn-danger">Anonymous Auth
         </button>
 
         <br/>
@@ -55,4 +57,7 @@ const mapStateToProps = (state, action) => ({
   authError: state.user.authError
 });
 
-export default connect(mapStateToProps, { getAuthTokenSimple, useAnonymousAuth })(Login);
+export default connect(mapStateToProps, {
+  getAuthTokenSimple,
+  useAnonymousAuth
+})(Login);

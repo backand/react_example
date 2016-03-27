@@ -1,4 +1,8 @@
-import { GET_AUTH_TOKEN_SIMPLE, LOGIN_SUCCESS, LOGIN_FAILURE } from 'constants/action-types';
+import { 
+  GET_AUTH_TOKEN_SIMPLE, 
+  LOGIN_SUCCESS, 
+  LOGIN_FAILURE 
+} from 'constants/action-types';
 
 export function getAuthTokenSimple(username, password) {
   return { type: GET_AUTH_TOKEN_SIMPLE, payload: { username, password, type: 'token' } };

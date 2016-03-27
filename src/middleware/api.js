@@ -1,15 +1,15 @@
-import { GET_AUTH_TOKEN_SIMPLE, TODO_GET_ITEMS, TODO_POST_ITEM } from 'constants/action-types';
-import { HTTP } from 'utils/http';
-import { loginSuccess, loginFailure } from 'actions/login';
-import { getItemsSuccess, postItemSuccess } from 'actions/todo';
+import {GET_AUTH_TOKEN_SIMPLE, TODO_GET_ITEMS, TODO_POST_ITEM} from 'constants/action-types';
+import {HTTP} from 'utils/http';
+import {loginSuccess, loginFailure} from 'actions/login';
+import {getItemsSuccess, postItemSuccess} from 'actions/todo';
 
-const apiUrl = 'https://api.backand.com';
+const apiUrl  = 'https://api.backand.com';
 const appName = 'angular2';
 
 export function APIMiddleware({ dispatch, getState }) {
   return next => action => {
-    const state = getState();
-    const authHeader = getAuthHeader(state.user.authType, state.user.accessToken);
+    const state         = getState();
+    const authHeader    = getAuthHeader(state.user.authType, state.user.accessToken);
     const contentHeader = { 'Content-Type': 'application/x-www-form-urlencoded' };
 
     switch (action.type) {

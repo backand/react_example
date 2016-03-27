@@ -1,4 +1,9 @@
-import { TODO_GET_ITEMS, TODO_POST_ITEM, TODO_GET_ITEMS_SUCCESS, TODO_POST_ITEM_SUCCESS } from 'constants/action-types';
+import {
+  TODO_GET_ITEMS,
+  TODO_POST_ITEM,
+  TODO_GET_ITEMS_SUCCESS,
+  TODO_POST_ITEM_SUCCESS
+} from 'constants/action-types';
 
 export function getItems() {
   return { type: TODO_GET_ITEMS };

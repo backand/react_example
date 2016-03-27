@@ -7,8 +7,6 @@ import {store} from 'store';
 
 import {Root} from 'components/root';
 
-window.store = store;
-
 ReactDOM.render((
   <Provider store={ store }>
     <Root />
