@@ -17,7 +17,7 @@ export function postItem(todo) {
   return { type: TODO_POST_ITEM, payload: { todo } }
 }
 
-export function postItemSuccess({ id, description }) {
+export function postItemSuccess(id, description) {
   const todo = { id, description };
   return { type: TODO_POST_ITEM_SUCCESS, payload: { todo } };
 }

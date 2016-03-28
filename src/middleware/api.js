@@ -32,7 +32,7 @@ export function APIMiddleware({ dispatch, getState }) {
       case TODO_POST_ITEM:
         const todo = { description: action.payload.todo };
         HTTP.post(`${apiUrl}/1/objects/todo?returnObject=true`, todo, authHeader)
-          .then((data) => dispatch(postItemSuccess(data)))
+          .then((data) => dispatch(postItemSuccess(data.id, data.description)))
           .catch((err) => console.log(`Error: ${err}`));
         break;
     }
