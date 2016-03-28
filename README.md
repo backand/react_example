@@ -3,6 +3,6 @@
 To run:
 
 ```
-  git clone REPO_URL
+  git clone https://github.com/backand/react_example.git
   npm start
 ```
