@@ -10,7 +10,7 @@ export class TodoList extends Component {
       <div>
         <div>
           <div>
-            ADD TODO: <input name="todo-input" ref="todo" defaultValue="World"/>
+            <div>ADD TODO: <input name="todo-input" ref="todo" defaultValue="World"/></div><br/>
             <div>
               <button onClick={ this.props.getItems }
                       className="btn btn-success">Get Items
@@ -19,8 +19,7 @@ export class TodoList extends Component {
                       className="btn btn-warning">Post Item
               </button>
             </div>
-            <br/>
-            <label>Result:</label>
+            <label>Result: (GET:/1/objects/todo)</label>
             <ul className="list-group">
               { this.renderTodos() }
             </ul>

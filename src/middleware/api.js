@@ -4,7 +4,7 @@ import {loginSuccess, loginFailure} from 'actions/login';
 import {getItemsSuccess, postItemSuccess} from 'actions/todo';
 
 const apiUrl  = 'https://api.backand.com';
-const appName = 'angular2';
+const appName = 'reactexample';
 
 export function APIMiddleware({ dispatch, getState }) {
   return next => action => {
@@ -19,7 +19,7 @@ export function APIMiddleware({ dispatch, getState }) {
         const data = { username, password, appName, grant_type: 'password' };
 
         HTTP.post(`${apiUrl}/token`, data, contentHeader)
-          .then(({ access_token }) => dispatch(loginSuccess(access_token, action.payload.type)))
+          .then((data) => dispatch(loginSuccess(data.access_token, data.username, action.payload.type)))
           .catch((err) => dispatch(loginFailure(err.body.error_description)));
         break;
 

@@ -18,13 +18,13 @@ export class Login extends Component {
 
         <div>
           <label>Username</label>
-          <input ref="username" defaultValue="test@angular2.com"/>
+          <input ref="username" defaultValue="react@backand.com"/>
         </div>
         <div>
           <label>Password</label>
-          <input ref="password" defaultValue="angular2"/>
+          <input ref="password" defaultValue="react1234"/>
         </div>
-
+        <br/>
         <button onClick={ this._getAuthTokenSimple.bind(this) }
                 className="btn btn-success">Token Auth
         </button>
@@ -35,7 +35,7 @@ export class Login extends Component {
         <br/>
         <label>Using { this.props.authType } authentication</label>
         <div className={ errorClasses }>
-          <label>{ this.props.authStatus }</label>
+          <label>{ this.props.authStatus } {this.props.username}</label>
         </div>
 
       </div>
@@ -54,13 +54,15 @@ export class Login extends Component {
 Login.PropTypes = {
   authStatus: PropTypes.string.required,
   authType: PropTypes.string.required,
-  authError: PropTypes.bool.required
+  authError: PropTypes.bool.required,
+  username: PropTypes.string.required
 };
 
 const mapStateToProps = (state, action) => ({
   authStatus: state.user.authStatus,
   authType: state.user.authType,
-  authError: state.user.authError
+  authError: state.user.authError,
+  username: state.user.username
 });
 
 export default connect(mapStateToProps, {

@@ -9,11 +9,11 @@ export function getAuthTokenSimple(username, password) {
 }
 
 export function useAnonymousAuth() {
-  return loginSuccess("08fd510a-4b52-43fa-938f-f2c841bd3106", 'anonymous');
+  return loginSuccess("589603b5-ea43-4551-8162-fe3b2f655e86", 'anonymous');
 }
 
-export function loginSuccess(accessToken, authType) {
-  return { type: LOGIN_SUCCESS, payload: { accessToken, authType } };
+export function loginSuccess(accessToken, username, authType) {
+  return { type: LOGIN_SUCCESS, payload: { accessToken, username, authType } };
 }
 
 export function loginFailure(message) {

@@ -7,11 +7,12 @@ export function user(state = initialState, action) {
   switch (action.type) {
 
     case LOGIN_SUCCESS:
-      const { accessToken, authType } = action.payload;
+      const { accessToken, username, authType } = action.payload;
       return Object.assign({}, state, {
         accessToken,
         authType,
-        authStatus: 'OK'
+        authStatus: 'Sign in as ',
+        username
       });
 
     case LOGIN_FAILURE:
